@@ -1,0 +1,80 @@
+:root{
+    --pri: #4a3620;
+    --sec: #f42e2b;
+    --tri: #a5795e;
+    --tri: #957C62;
+}
+
+@font-face {
+    font-family: aeonic;
+    src: url(./Aeonika-BF66fcc5a8cc5db.otf);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html,
+body{
+    height:100%;
+    width:100%;
+}
+#main{
+    height :100%;
+    width:100%;
+    background-color: var(--pri);
+}
+nav{
+    position :fixed;
+    width:100%;
+    height: 10%;
+    background-color: var(--sec);
+}
+section.allelements{
+    height:100%;
+    width: 100%;
+    padding:40px;
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    gap: 30px;
+    position:absolute;
+}
+.elem{
+    display: flex;
+    background-color: #fff06a;
+    border-radius: 30px;
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+.elem img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.elem h2{
+    position: absolute;
+    
+    font-size: 15px;
+    bottom:4%;
+    right: 5%;
+    font-weight: 450px;
+}
+.elem:active{
+    scale:0.99;
+}
+.fullElem{
+    height: 100%;
+    width: 100%;
+    background-color: var(--pri);
+    padding: 30px;
+    font-size: 15px;
+    display: none;
+    position:absolute
+}
