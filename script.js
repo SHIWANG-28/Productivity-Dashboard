@@ -1,7 +1,14 @@
 var allElem = document.querySelectorAll(".elem");
-var allfullElem = document.querySelectorAll(".fullElem");
+var fullElemPage = document.querySelectorAll(".fullElem");
+var fullElemPageBackButton = document.querySelectorAll(".fullElem .back");
+
 allElem.forEach((elem) => {
     elem.addEventListener('click', () => {
-        allfullElem[elem.id].style.display = "block";
+        fullElemPage[elem.id].style.display = "block";
     })
 })
+fullElemPageBackButton.forEach((back) => {
+    back.addEventListener('click', () => {
+        fullElemPage[back.id].style.display = "none";
+    })
+})  
