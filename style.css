@@ -172,15 +172,30 @@ section.allelements{
     flex-direction: column;
     align-items: flex-start;
     padding: 30px;
+    overflow-y: auto;
 }
-.allTask{
+.task{
     width: 100%;
-    background-color: var(--tri);
+    background-color: var(--sec);
     border-radius: 10px;
-    padding: 15px 25px;
+    padding: 15px 20px;
     font-size: 25px;
-    margin-bottom: 20px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
+}
+.task h5{
+    color: var(--pri);
+    font-size: 18px;
+    font-weight: 700;
+}
+.task button{
+    background-color: rgb(9, 255, 0);
+    border:none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: aliceblue;
+    cursor: pointer;
+    font-weight: 600;
 }
