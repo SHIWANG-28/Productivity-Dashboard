@@ -3,6 +3,7 @@
     --sec: #14b8b5;
     --tri: #F97316;
     --tri2: #F8FAFC;
+    --red: #DC2626;
 }
 
 @font-face {
@@ -82,7 +83,7 @@ section.allelements{
 .back{
     position: absolute;
     right: 5%;
-    background-color: red;
+    background-color: var(--red);
     border-radius: 10%;
     padding: 15px 22px;
     font-size: 22px;
@@ -94,9 +95,7 @@ section.allelements{
 .back:active{
     scale:0.97;
 }
-.todo-list-fullpage{
-    display:block;
-}
+
 .todo-list-fullpage h2{
     color: aliceblue;
     font-size: 30px;
@@ -126,7 +125,7 @@ section.allelements{
     align-items: flex-start;
     padding: 30px;
 }
-.todo-container .addTask form input{
+.todo-container .addTask form input[type="text"] {
     width: 100%;
     border-radius: 10px;
     border:none;
@@ -187,10 +186,26 @@ section.allelements{
 .task h5{
     color: var(--pri);
     font-size: 18px;
+    display:flex;
+    font-weight: 700;
+    align-items: center;
+}
+.task h5 span{
+    background-color: var(--red);
+    color :azure;
+    padding: 2px 4px;
+    border-radius: 50px;
+    font-size: 10px;
     font-weight: 700;
 }
+.task h5 span.true{
+    opacity: 1;
+}
+.task h5 span.false{
+    opacity: 0;
+}
 .task button{
-    background-color: rgb(9, 255, 0);
+    background-color: rgb(54, 255, 47);
     border:none;
     padding: 10px 15px;
     border-radius: 10px;
@@ -199,3 +214,19 @@ section.allelements{
     cursor: pointer;
     font-weight: 600;
 }
+.task button.completed{
+    background-color:var(--red);
+}
+.task button:active{
+    scale: 0.96;
+}
+.mark-imp{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0;
+    white-space: nowrap;
+}
+
