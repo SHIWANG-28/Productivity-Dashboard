@@ -14,7 +14,7 @@ function openFeature(){
        })
    })  
 }
-openFeature();
+// openFeature();
 
 function todoList(){
     var currentTask = []
@@ -28,9 +28,9 @@ if(localStorage.getItem('currentTask')){
 
 
 function renderTask(){
-    var allTask = document.querySelector('.allTask')
+    let allTask = document.querySelector('.allTask')
 
-    var sum = ''
+    let sum = ''
     currentTask.forEach(function(elem,idx){
         sum = sum+`<div class="task">
                         <h5>${elem.task} <span class=${elem.imp}>imp</span></h5>
@@ -81,4 +81,23 @@ allTask.addEventListener('click', function(event){
 })
 
 }
-todoList()
+// todoList()
+
+
+// -----DAILY PLANNER----
+
+var hours = Array.from({length:18},function(elem,idx){
+    return `${6+idx}:00 - ${7+idx}:00`
+})
+var wholeDaySum =''
+hours.forEach(function(elem){
+    wholeDaySum = wholeDaySum + `<div class="day-planner-time">
+    <p>${elem}</p>
+    <input type="text" placeholder="...."> 
+</div>`
+
+})
+var dayPlanner = document.querySelector('.day-planner')
+
+dayPlanner.innerHTML = wholeDaySum
+

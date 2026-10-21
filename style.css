@@ -230,3 +230,45 @@ section.allelements{
     white-space: nowrap;
 }
 
+.daily-planner-fullpage{
+    display: block;
+}
+.daily-planner-fullpage h2{
+    font-size: 40px;
+    color: var(--tri2);
+}
+.daily-planner-fullpage .day-planner{
+    background-color: var(--sec);
+    height: 80%;
+    margin-top: 35px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 20px;
+    align-content: start;
+    overflow: auto;
+}
+.daily-planner-fullpage .day-planner .day-planner-time{
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 0;
+}
+.day-planner .day-planner-time p{
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    font-size: 15px;
+}
+.day-planner .day-planner-time input{
+    padding: 15px 35px;
+    width: 100%;
+    background-color:var(--tri2) ;
+    border-radius: 7px;
+    border: none;
+    font-size: 25px;
+    padding-top: 20px;
+    outline: none;
+}
