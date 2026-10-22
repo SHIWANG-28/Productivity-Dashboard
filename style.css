@@ -230,12 +230,37 @@ section.allelements{
     white-space: nowrap;
 }
 
-.daily-planner-fullpage{
-    display: block;
-}
+
 .daily-planner-fullpage h2{
     font-size: 40px;
     color: var(--tri2);
+}
+.day-planner-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.day-planner-actions{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.day-planner-actions .back{
+    position: static;
+}
+.clear-planner{
+    background-color: var(--red);
+    color: var(--tri2);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 22px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.clear-planner:active{
+    scale: 0.97;
 }
 .daily-planner-fullpage .day-planner{
     background-color: var(--sec);

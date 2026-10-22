@@ -14,7 +14,7 @@ function openFeature(){
        })
    })  
 }
-// openFeature();
+openFeature();
 
 function todoList(){
     var currentTask = []
@@ -81,23 +81,50 @@ allTask.addEventListener('click', function(event){
 })
 
 }
-// todoList()
+todoList()
 
 
 // -----DAILY PLANNER----
 
-var hours = Array.from({length:18},function(elem,idx){
-    return `${6+idx}:00 - ${7+idx}:00`
-})
-var wholeDaySum =''
-hours.forEach(function(elem){
-    wholeDaySum = wholeDaySum + `<div class="day-planner-time">
-    <p>${elem}</p>
-    <input type="text" placeholder="...."> 
-</div>`
+function dailyPlanner() {
+    var dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {};
+    var dayPlanner = document.querySelector('.day-planner');
 
-})
-var dayPlanner = document.querySelector('.day-planner')
+    var hours = Array.from({ length: 18 }, function (elem, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`;
+    });
 
-dayPlanner.innerHTML = wholeDaySum
+    var wholeDaySum = '';
+    hours.forEach(function (elem, idx) {
+        wholeDaySum = wholeDaySum + `
+            <div class="day-planner-time">
+                <p>${elem}</p>
+                <input id="${idx}" type="text" placeholder="....">
+            </div>`;
+    });
 
+    dayPlanner.innerHTML = wholeDaySum;
+
+    var dayPlannerInput = document.querySelectorAll('.day-planner input');
+
+    dayPlannerInput.forEach((elem) => {
+        elem.value = dayPlanData[elem.id] || '';
+
+        elem.addEventListener('input', function () {
+            dayPlanData[elem.id] = elem.value;
+            localStorage.setItem('dayPlanData', JSON.stringify(dayPlanData));
+        });
+    });
+
+    var clearPlannerBtn = document.querySelector('.clear-planner');
+
+    clearPlannerBtn.addEventListener('click', function () {
+        dayPlanData = {};
+        dayPlannerInput.forEach(function (elem) {
+            elem.value = '';
+        });
+        localStorage.removeItem('dayPlanData');
+    });
+}
+
+dailyPlanner();
