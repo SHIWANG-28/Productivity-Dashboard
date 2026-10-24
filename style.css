@@ -297,3 +297,57 @@ section.allelements{
     padding-top: 20px;
     outline: none;
 }
+
+/* ------------------motivation ------------------- */
+
+.motivation-fullpage{
+    display: block;
+    position: relative;
+}
+.motivation-fullpage .motivation-container{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    border-radius: 50px;
+    transform:translate(-50%,-50%)
+}
+.motivation-fullpage .motivation-container::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    background-color: var(--tri2);
+    border-radius: 50px;
+    scale: 1.1;
+    filter: blur(150px);
+    z-index:8 ;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    background-color: var(--sec);
+    padding: 20px;
+    border-radius: 50px;
+}
+.motivation1{
+    background-color: var(--tri2);
+    padding: 20px;
+    border-radius: 25px;
+}
+.motivation1 h2{
+    font-size: 25px;
+    font-weight: 250px;
+    color: var(--pri);
+    font-family: 'Courier New', Courier, monospace;
+}
+.motivation2 h2{
+    font-size: 25px;
+    font-weight: 400px;
+    margin-top: 25px;
+    color: var(--pri);
+    font-family:'Courier New', Courier, monospace;
+}
