@@ -301,17 +301,20 @@ section.allelements{
 /* ------------------motivation ------------------- */
 
 .motivation-fullpage{
-    display: block;
     position: relative;
+    height: auto;
+    min-height: 100%;
+    padding: 110px 24px 40px;
+}
+.motivation-fullpage .back{
+    top: 30px;
 }
 .motivation-fullpage .motivation-container{
-    height: 400px;
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left:50%;
+    width: min(100%, 720px);
+    position: relative;
+    margin: 0 auto;
     border-radius: 50px;
-    transform:translate(-50%,-50%)
+    isolation: isolate;
 }
 .motivation-fullpage .motivation-container::after{
     content: '';
@@ -324,14 +327,20 @@ section.allelements{
     scale: 1.1;
     filter: blur(150px);
     z-index:8 ;
+    pointer-events: none;
 }
 .motivation-fullpage .motivation-container .motivation-wrapper{
     z-index: 10;
-    position: absolute;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-height: 400px;
     width: 100%;
     background-color: var(--sec);
     padding: 20px;
     border-radius: 50px;
+    overflow-wrap: anywhere;
 }
 .motivation1{
     background-color: var(--tri2);
@@ -340,14 +349,28 @@ section.allelements{
 }
 .motivation1 h2{
     font-size: 25px;
-    font-weight: 250px;
+    font-weight: 600;
     color: var(--pri);
     font-family: 'Courier New', Courier, monospace;
 }
 .motivation2 h2{
-    font-size: 25px;
-    font-weight: 400px;
-    margin-top: 25px;
+    font-size: clamp(20px, 3vw, 25px);
+    font-weight: 600;
+    line-height: 1.5;
     color: var(--pri);
     font-family:'Courier New', Courier, monospace;
+}
+.motivation3{
+    min-height: 48px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(15, 23, 42, 0.2);
+    text-align: right;
+}
+.quote-author{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--pri);
 }

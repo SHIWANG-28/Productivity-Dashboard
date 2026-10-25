@@ -128,3 +128,34 @@ function dailyPlanner() {
 }
 
 dailyPlanner();
+
+async function fetchQuote(){
+    const quoteElement = document.querySelector('.motivation2 h2');
+    const authorElement = document.querySelector('.quote-author');
+    quoteElement.textContent = 'Loading quote...';
+    authorElement.textContent = '';
+
+    try {
+        const response = await fetch('https://dummyjson.com/quotes/random');
+
+        if (!response.ok) {
+            throw new Error(`Quote API returned HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data || typeof data.quote !== 'string' || !data.quote.trim()) {
+            throw new Error('Quote API returned an invalid quote');
+        }
+
+        quoteElement.textContent = data.quote;
+        const author = typeof data.author === 'string' ? data.author.trim() : '';
+        authorElement.textContent = `— ${author || 'Unknown author'}`;
+        console.log(data);
+    } catch (error) {
+        console.error('Could not fetch quote:', error);
+        quoteElement.textContent = 'Unable to load a quote. Please refresh to try again.';
+        authorElement.textContent = '';
+    }
+}
+fetchQuote();
