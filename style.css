@@ -374,3 +374,13 @@ section.allelements{
     line-height: 1.5;
     color: var(--pri);
 }
+
+/* -----------Pomodoro timer----------- */
+
+.pomodoro-timer-fullpage{
+    display: block;
+}
+
+.pomodoro-timer-fullpage h2{
+    
+}

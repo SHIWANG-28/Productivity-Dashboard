@@ -159,3 +159,12 @@ async function fetchQuote(){
     }
 }
 fetchQuote();
+
+
+// ----------------Pomodoro Timer -------------------
+
+function pomodoroTimer{
+
+}
+ 
+pomodoroTimer()
