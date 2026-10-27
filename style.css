@@ -381,6 +381,32 @@ section.allelements{
     display: block;
 }
 
-.pomodoro-timer-fullpage h2{
-    
+.pomodoro-timer-fullpage h1{
+    font-size: 55px;
+    color: var(--tri2);
+}
+.pomodoro-timer-fullpage .pomo-timer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+}
+.pomo-timer h1{
+    font-size:120px;
+}
+.pomo-timer button{
+    background-color: var(--sec);
+    padding: 8px 25px;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 2px var(--tri2);
+    transition: all ease 0.2s;
+    font-weight: 550;
+}
+.pomo-timer button:active{
+    box-shadow: 0px 0px 0px var(--tri2);
+
 }

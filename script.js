@@ -158,13 +158,44 @@ async function fetchQuote(){
         authorElement.textContent = '';
     }
 }
-fetchQuote();
+// fetchQuote();
 
 
 // ----------------Pomodoro Timer -------------------
 
-function pomodoroTimer{
+function pomodoroTimer(){
+    let timer = document.querySelector('.pomo-timer h1')
+    var startBtn = document.querySelector('.pomo-timer .start-timer')
+    var pauseBtn = document.querySelector('.pomo-timer .pause-timer')
+    var resetBtn = document.querySelector('.pomo-timer .reset-timer')
+
+    let timerInterval = null
+    let totalSeconds = 25*60
+    function updateTime(){
+        let minutes = Math.floor(totalSeconds/60)
+        let seconds = totalSeconds%60
+
+
+        timer.innerHTML = `${string(minutes).padStart('2','0')}:${string(seconds).padStart('2','0')}`
+    }
+    function startTimer(){
+        clearInterval(timerInterval)
+        timerInterval=setInterval(function(){
+            totalSeconds--
+            updateTime()
+        },1000)
+    }
+    function pauseTimer(){
+        clearInterval(timerInterval)
+    }
+    function resetTimer(){
+        clearInterval(timerInterval)
+        totalSeconds = 25*60
+        updateTime()
+    }
+    startBtn.addEventListener('click', startTimer)
+    pauseBtn.addEventListener('click', pauseTimer)
+    resetBtn.addEventListener('click', resetTimer)
 
 }
- 
 pomodoroTimer()
