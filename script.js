@@ -20,8 +20,6 @@ function todoList(){
     var currentTask = []
 if(localStorage.getItem('currentTask')){
     currentTask = JSON.parse(localStorage.getItem('currentTask'))
-}else{
-    console.error('task list is empty')
 }
 
 
@@ -158,44 +156,61 @@ async function fetchQuote(){
         authorElement.textContent = '';
     }
 }
-// fetchQuote();
+fetchQuote();
 
 
 // ----------------Pomodoro Timer -------------------
 
-function pomodoroTimer(){
-    let timer = document.querySelector('.pomo-timer h1')
-    var startBtn = document.querySelector('.pomo-timer .start-timer')
-    var pauseBtn = document.querySelector('.pomo-timer .pause-timer')
-    var resetBtn = document.querySelector('.pomo-timer .reset-timer')
+function pomodoroTimer() {
+    const timer = document.querySelector('.pomo-timer h1');
+    const startBtn = document.querySelector('.pomo-timer .start-timer');
+    const pauseBtn = document.querySelector('.pomo-timer .pause-timer');
+    const resetBtn = document.querySelector('.pomo-timer .reset-timer');
+    const session = document.querySelector('.pomodoro-timer-fullpage .session');
+    let isWorkSession = true;
+    let timerInterval = null;
+    let totalSeconds = 25 * 60;
 
-    let timerInterval = null
-    let totalSeconds = 25*60
-    function updateTime(){
-        let minutes = Math.floor(totalSeconds/60)
-        let seconds = totalSeconds%60
+    function updateTimer() {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
 
+        timer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        session.textContent = isWorkSession ? 'Work Session' : 'Break';
+        session.style.backgroundColor = isWorkSession ? 'var(--green)' : 'var(--blue)';
+    }
 
-        timer.innerHTML = `${string(minutes).padStart('2','0')}:${string(seconds).padStart('2','0')}`
+    function pauseTimer() {
+        clearInterval(timerInterval);
+        timerInterval = null;
     }
-    function startTimer(){
-        clearInterval(timerInterval)
-        timerInterval=setInterval(function(){
-            totalSeconds--
-            updateTime()
-        },1000)
-    }
-    function pauseTimer(){
-        clearInterval(timerInterval)
-    }
-    function resetTimer(){
-        clearInterval(timerInterval)
-        totalSeconds = 25*60
-        updateTime()
-    }
-    startBtn.addEventListener('click', startTimer)
-    pauseBtn.addEventListener('click', pauseTimer)
-    resetBtn.addEventListener('click', resetTimer)
 
+    function startTimer() {
+        if (timerInterval !== null) return;
+
+        timerInterval = setInterval(function () {
+            totalSeconds--;
+
+            if (totalSeconds === 0) {
+                pauseTimer();
+                isWorkSession = !isWorkSession;
+                totalSeconds = isWorkSession ? 25 * 60 : 5 * 60;
+            }
+
+            updateTimer();
+        }, 1000);
+    }
+
+    function resetTimer() {
+        pauseTimer();
+        isWorkSession = true;
+        totalSeconds = 25 * 60;
+        updateTimer();
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer);
+    updateTimer();
 }
-pomodoroTimer()
+pomodoroTimer();

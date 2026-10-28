@@ -4,6 +4,8 @@
     --tri: #F97316;
     --tri2: #F8FAFC;
     --red: #DC2626;
+    --green: rgb(11, 128, 0);
+    --blue:rgb(0, 162, 215);
 }
 
 @font-face {
@@ -377,10 +379,6 @@ section.allelements{
 
 /* -----------Pomodoro timer----------- */
 
-.pomodoro-timer-fullpage{
-    display: block;
-}
-
 .pomodoro-timer-fullpage h1{
     font-size: 55px;
     color: var(--tri2);
@@ -409,4 +407,15 @@ section.allelements{
 .pomo-timer button:active{
     box-shadow: 0px 0px 0px var(--tri2);
 
+}
+
+.pomodoro-timer-fullpage .session{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,0);
+    background-color:var(--green);
+    padding: 15px 30px;
+    font-size: 30px;
+    border-radius: 5px;
 }
