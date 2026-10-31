@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productivity Dashboard</title>
+    <title>Login | Productivity Dashboard</title>
     <link rel="stylesheet" href="style.css" class="css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -21,16 +22,17 @@
         <symbol id="icon-drop" viewBox="0 0 24 24"><path d="M12 3S5 11 5 15a7 7 0 0 0 14 0c0-4-7-12-7-12Z"/></symbol>
         <symbol id="icon-wind" viewBox="0 0 24 24"><path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6a3 3 0 1 1-3 3"/></symbol>
     </svg>
-    <main id="main">
+    <main id="main" hidden>
         <div class="dashboard-home">
             <header class="dashboard-header">
                 <div class="brand">
                     <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <div><h1>Productivity Dashboard<span class="brand-dot">.</span></h1><p>A little intention. A better day.</p></div>
+                    <div><h1 tabindex="-1">Productivity Dashboard<span class="brand-dot">.</span></h1><p>A little intention. A better day.</p></div>
                 </div>
                 <div class="theme-controls">
                     <span class="theme-name" aria-live="polite">Espresso</span>
                     <button type="button" class="change-theme"><svg class="icon"><use href="#icon-palette"/></svg><span>Change theme</span></button>
+                    <button type="button" class="logout-button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5v16h4m5-12 4 4-4 4M9 12h12"/></svg><span>Log out</span></button>
                 </div>
             </header>
 
@@ -156,6 +158,53 @@
             </div>
         </section>
     </main>
+    <section class="login-view" aria-label="Sign in to Productivity Dashboard">
+        <header class="login-header">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <div><p class="login-brand-name">Productivity Dashboard<span class="brand-dot">.</span></p><p>A little intention. A better day.</p></div>
+            </div>
+            <button type="button" class="login-theme-button"><svg class="icon" aria-hidden="true"><use href="#icon-palette"/></svg><span>Change theme</span></button>
+        </header>
+
+        <div class="login-shell">
+            <aside class="login-story">
+                <p class="login-story-label"><span class="live-dot"></span> YOUR SPACE TO FOCUS</p>
+                <div class="login-story-copy"><span class="login-story-number" aria-hidden="true">01 / A FRESH START</span><h2>A little focus.<br>A better everyday.</h2><p>Clear your mind. Make a plan.<br>Give the important things a little room.</p></div>
+                <div class="login-story-footer"><span><svg class="icon" aria-hidden="true"><use href="#icon-sun"/></svg> Small steps, meaningful days.</span><span aria-hidden="true">✦</span></div>
+            </aside>
+
+            <div class="login-form-panel">
+                <p class="login-eyebrow">LET'S MAKE TODAY COUNT</p>
+                <h1>Welcome back<span class="brand-dot">.</span></h1>
+                <p class="login-subtitle">Your daily essentials, all in one calm space.</p>
+                <form class="login-form" method="post" novalidate>
+                    <div class="login-field">
+                        <label for="login-email">Email address</label>
+                        <input id="login-email" name="email" type="email" placeholder="you@example.com" autocomplete="username" inputmode="email" required aria-describedby="login-email-error">
+                        <p class="field-error" id="login-email-error" hidden></p>
+                    </div>
+                    <div class="login-field">
+                        <label for="login-password">Password</label>
+                        <div class="password-field"><input id="login-password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required aria-describedby="login-password-error"><button type="button" class="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>
+                        <p class="field-error" id="login-password-error" hidden></p>
+                    </div>
+                    <p class="login-error" role="alert" hidden></p>
+                    <button class="login-submit" type="submit"><span>Sign in</span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+                    <p class="login-status" role="status"></p>
+                </form>
+                <div class="login-demo-box">
+                    <div class="demo-heading"><span>TRY THE DEMO</span><button type="button" class="fill-demo">Fill details <span aria-hidden="true">↗</span></button></div>
+                    <p><span>Email</span><code>demo@focus.test</code></p>
+                    <p><span>Password</span><code>Focus@123</code></p>
+                </div>
+                <p class="login-demo-note">Demo access only. No real account is created.</p>
+            </div>
+        </div>
+        <footer class="login-footer"><p class="developer-credit">Developed by <strong>Shiwang Mishra</strong> <span class="credit-emoji" aria-hidden="true">✈️</span></p><span>A little more focus. A little more you.</span></footer>
+        <noscript><p class="login-noscript">Enable JavaScript to use the demo login and dashboard.</p></noscript>
+    </section>
     <script src="script.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>

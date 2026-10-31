@@ -33,6 +33,8 @@ function dashboardHome() {
         const nextTheme = themes[(themeIndex + 1) % themes.length];
         document.documentElement.dataset.theme = theme.id;
         themeName.textContent = theme.name;
+        const loginThemeButton = document.querySelector('.login-theme-button');
+        if (loginThemeButton) loginThemeButton.setAttribute('aria-label', `Change theme. Current: ${theme.name}. Next: ${nextTheme.name}.`);
         themeButton.setAttribute('aria-label', `Change theme. Current: ${theme.name}. Next: ${nextTheme.name}.`);
         themeButton.title = `${theme.name} theme · Try ${nextTheme.name}`;
     }
