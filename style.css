@@ -80,8 +80,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { min-height: 100%; background: var(--pri); }
 body {
-    min-width: 320px;
+    min-width: 0;
     min-height: 100vh;
+    min-height: 100svh;
     background: var(--pri);
     color: var(--text);
     font-family: "Segoe UI", Arial, sans-serif;
@@ -99,10 +100,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 [hidden] { display: none !important; }
 .icon-library { position: absolute; width: 0; height: 0; overflow: hidden; }
 .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-#main { min-height: 100vh; background: var(--pri); transition: background-color .25s ease; }
+#main { min-height: 100vh; min-height: 100svh; background: var(--pri); transition: background-color .25s ease; }
 .dashboard-home { max-width: 1560px; margin: 0 auto; padding: 28px 44px 24px; }
 .dashboard-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 10px 0 30px; }
-.brand { display: flex; align-items: center; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .brand-mark { width: 42px; height: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 7px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .brand-mark i { background: var(--accent); border-radius: 2px; }
 .brand-mark i:nth-child(2) { opacity: .45; border-radius: 2px 8px 2px 2px; }
@@ -110,7 +111,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .brand h1 { font-size: clamp(18px, 1.8vw, 26px); font-weight: 650; letter-spacing: -.8px; }
 .brand-dot { color: var(--accent); }
 .brand p { color: var(--muted); font-size: 12px; margin-top: 5px; letter-spacing: .15px; }
-.theme-controls { display: flex; align-items: center; gap: 18px; }
+.theme-controls { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
 .theme-name { color: var(--muted); font-size: 12px; display: flex; align-items: center; gap: 7px; }
 .theme-name::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .change-theme { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 17px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; font-size: 13px; transition: background-color .2s ease, transform .2s ease; }
@@ -142,7 +143,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .clock-period { font-size: clamp(18px, 2.2vw, 28px); font-weight: 400; color: #e1e4d8; }
 .hero-note { color: #e4e7dc; font-size: 14px; margin-top: 12px; letter-spacing: .1px; }
 .hero-location { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 30px; }
-.location-label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #f4f4e9; }
+.location-label { display: flex; align-items: center; gap: 6px; min-width: 0; max-width: 100%; font-size: 13px; color: #f4f4e9; }
+.weather-location { min-width: 0; overflow-wrap: anywhere; line-height: 1.5; }
 .location-label .icon { width: 16px; height: 16px; }
 .city-search { display: flex; align-items: center; gap: 8px; width: 188px; padding: 5px 6px 5px 11px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .3); border-radius: 9px; }
 .city-search > .icon { width: 14px; height: 14px; color: #e0e6dc; }
@@ -163,7 +165,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .weather-details > div { display: flex; justify-content: space-between; gap: 12px; }
 .weather-details dt { display: flex; align-items: center; gap: 8px; color: #e3e8df; }
 .weather-details .icon { width: 13px; height: 13px; }
-.weather-details dd { font-weight: 500; color: #fffaf2; }
+.weather-details dd { font-weight: 500; color: #fffaf2; text-align: right; }
 .weather-updated { margin-top: 13px; font-size: 9px; color: #d7dfd5; }
 .hero-footer { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 9px 20px; border-top: 1px solid rgba(255, 255, 255, .17); padding-top: 13px; font-size: 10px; color: #e0e5db; }
 .clock-caption { font-size: 9px; letter-spacing: 1.6px; }
@@ -188,7 +190,10 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
 .card-description { display: block; font-size: 10px; line-height: 1.5; color: #e5e6df; margin-top: 6px; }
 .card-arrow { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .4); color: #fff; background: rgba(255, 255, 255, .1); }
 .card-arrow .icon { width: 16px; height: 16px; transform: rotate(-35deg); }
-.dashboard-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 24px; color: var(--muted); font-size: 10px; }
+.dashboard-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); }
+.developer-credit { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; font-size: 12px; line-height: 1.7; letter-spacing: .1px; }
+.developer-credit strong { color: var(--text); font-weight: 600; }
+.credit-emoji { display: inline-block; margin-left: 3px; font-size: 17px; line-height: 1; }
 .theme-dots { display: flex; gap: 5px; }
 .theme-dots i { width: 7px; height: 7px; border-radius: 50%; background: #dfba91; }
 .theme-dots i:nth-child(2) { background: #91aa80; }
@@ -197,13 +202,13 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
 .theme-dots i:nth-child(5) { background: #ce9b93; }
 
 /* The same palette follows you into every tool. */
-.fullElem { position: relative; display: none; width: 100%; min-height: 100vh; max-width: 1400px; margin: 0 auto; padding: 100px 44px 40px; background: var(--pri); }
+.fullElem { position: relative; display: none; width: 100%; min-height: 100vh; min-height: 100svh; max-width: 1400px; margin: 0 auto; padding: 100px 44px 40px; background: var(--pri); }
 .fullElem > h1, .fullElem > h2 { color: var(--text); font-size: clamp(27px, 3vw, 42px); font-weight: 550; letter-spacing: -1px; }
 .back, .clear-planner { padding: 11px 18px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; color: var(--text); background: var(--surface); }
 .back { position: absolute; top: 28px; right: 44px; }
 .back:hover, .clear-planner:hover { background: var(--surface-raised); }
 .todo-container { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.3fr); gap: 24px; margin-top: 30px; align-items: start; }
-.addTask, .allTask { border-radius: 18px; border: 1px solid var(--border); background: var(--surface); padding: 25px; }
+.addTask, .allTask { min-width: 0; border-radius: 18px; border: 1px solid var(--border); background: var(--surface); padding: 25px; }
 .addTask form { display: flex; flex-direction: column; gap: 18px; }
 .addTask input[type="text"], .addTask textarea { width: 100%; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-raised); color: var(--text); padding: 15px; font-size: 15px; }
 .addTask textarea { min-height: 180px; resize: vertical; }
@@ -215,13 +220,13 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
 .allTask:empty::before { content: "Your next small step starts here."; color: var(--muted); font-size: 14px; }
 .task { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px; background: var(--surface-raised); border-radius: 11px; margin-bottom: 12px; }
 .task:last-child { margin-bottom: 0; }
-.task h5 { font-size: 15px; line-height: 1.5; font-weight: 500; overflow-wrap: anywhere; }
+.task h5 { min-width: 0; flex: 1 1 160px; font-size: 15px; line-height: 1.5; font-weight: 500; overflow-wrap: anywhere; }
 .task h5 span { display: inline-block; padding: 1px 5px; border-radius: 5px; font-size: 9px; background: var(--red); color: #fff; margin-left: 5px; vertical-align: middle; }
 .task h5 span.false { display: none; }
-.task button { padding: 9px 12px; border: 0; border-radius: 7px; background: var(--green); color: #fff; white-space: nowrap; font-size: 11px; }
+.task button { flex-shrink: 0; padding: 9px 12px; border: 0; border-radius: 7px; background: var(--green); color: #fff; white-space: nowrap; font-size: 11px; }
 .task button.completed { background: var(--red); }
 .day-planner-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
-.day-planner-header h2 { font-size: clamp(25px, 3vw, 38px); font-weight: 550; color: var(--text); }
+.day-planner-header h2 { min-width: 0; flex: 1 1 340px; font-size: clamp(25px, 3vw, 38px); font-weight: 550; color: var(--text); }
 .day-planner-actions { display: flex; gap: 10px; }
 .day-planner-actions .back { position: static; }
 .day-planner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; max-height: 75vh; overflow: auto; padding: 22px; margin-top: 30px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
@@ -260,6 +265,12 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .card-description { font-size: 9px; }
     .card-arrow { width: 25px; height: 25px; }
 }
+@media (max-width: 1024px) {
+    section.allelements { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .elem { height: clamp(245px, 32vw, 310px); }
+    .card-title { font-size: 23px; }
+    .card-description { font-size: 11px; }
+}
 @media (max-width: 800px) {
     .dashboard-home { padding: 20px; }
     .brand p { font-size: 10px; }
@@ -288,10 +299,27 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .back { right: 24px; }
     .todo-container { grid-template-columns: 1fr; }
     .allTask { max-height: none; }
+    .change-theme, .back, .clear-planner, .addTask button, .task button, .pomo-timer button { min-height: 44px; }
+    .city-search { min-height: 44px; }
+    .city-search input, .addTask input[type="text"], .addTask textarea, .day-planner-time input { font-size: 16px; }
+    .city-search button { width: 32px; height: 32px; }
+    .day-planner { max-height: none; }
+    .day-planner-time p { font-size: 12px; }
+    .day-planner-time input { padding-top: 34px; }
+}
+@media (min-width: 561px) and (max-width: 680px) {
+    .dashboard-hero { grid-template-columns: 1fr; }
+    .hero-location { flex-direction: row; align-items: center; }
+    .city-search { width: 210px; }
+    .weather-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; }
+    .weather-topline, .weather-temperature, .weather-condition { grid-column: 1; }
+    .weather-details { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 10px 0 0 24px; border-top: 0; border-left: 1px solid rgba(255, 255, 255, .19); align-content: center; font-size: 13px; }
+    .weather-updated { grid-column: 1 / -1; }
 }
 @media (max-width: 560px) {
     .dashboard-home { padding: 16px; }
-    .dashboard-header { align-items: center; gap: 12px; padding: 5px 0 23px; }
+    .dashboard-header { align-items: center; flex-wrap: wrap; gap: 14px 12px; padding: 5px 0 23px; }
+    .brand { flex: 1 1 180px; }
     .brand h1 { font-size: 17px; letter-spacing: -.6px; }
     .brand p { margin-top: 4px; font-size: 9px; }
     .brand-mark { display: none; }
@@ -300,14 +328,14 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .dashboard-hero { grid-template-columns: 1fr; gap: 24px; padding: 25px 22px 17px; border-radius: 19px; background-position: 44% center; }
     .hero-eyebrow { font-size: 9px; }
     .live-date { margin-top: 25px; font-size: 18px; }
-    .live-time { font-size: clamp(48px, 13vw, 68px); letter-spacing: -2px; }
+    .live-time { font-size: clamp(36px, 12vw, 68px); letter-spacing: -2px; }
     .clock-period { font-size: 22px; }
     .hero-note { font-size: 13px; margin-top: 9px; }
     .hero-location { margin-top: 22px; gap: 13px; }
     .location-label { font-size: 12px; }
     .city-search { width: 100%; padding: 7px 7px 7px 12px; }
-    .city-search input { font-size: 12px; }
-    .weather-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; padding: 17px; border-radius: 13px; }
+    .city-search input { font-size: 16px; }
+    .weather-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 20px; padding: 17px; border-radius: 13px; }
     .weather-topline { grid-column: 1; }
     .weather-topline > span { font-size: 7px; }
     .weather-icon { width: 24px; height: 24px; }
@@ -315,7 +343,7 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .temperature-value { font-size: 48px; }
     .temperature-unit { font-size: 23px; }
     .weather-condition { grid-column: 1; font-size: 12px; }
-    .weather-details { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 6px 0 0 16px; border-top: 0; border-left: 1px solid rgba(255, 255, 255, .19); align-content: center; gap: 13px; font-size: 10px; }
+    .weather-details { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 6px 0 0 16px; border-top: 0; border-left: 1px solid rgba(255, 255, 255, .19); align-content: center; gap: 13px; font-size: 11px; }
     .weather-details dt { gap: 5px; }
     .weather-details .icon { width: 11px; height: 11px; }
     .weather-details > div { gap: 7px; }
@@ -335,7 +363,8 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .card-description { font-size: 9px; max-width: 110px; }
     .card-arrow { width: 23px; height: 23px; }
     .card-arrow .icon { width: 13px; height: 13px; }
-    .dashboard-footer { font-size: 8px; padding-top: 20px; }
+    .dashboard-footer { flex-direction: column; justify-content: center; padding-top: 18px; margin-top: 22px; gap: 12px; }
+    .developer-credit { justify-content: center; text-align: center; }
     .theme-dots { gap: 4px; }
     .theme-dots i { width: 6px; height: 6px; }
     .fullElem { padding: 90px 18px 30px; }
@@ -347,6 +376,30 @@ section.allelements { display: grid; grid-template-columns: repeat(4, minmax(0, 
     .motivation-container { margin-top: 20px; }
     .motivation-wrapper { padding: 25px; gap: 24px; }
     .pomo-timer button { padding: 12px 19px; margin: 14px 3px; font-size: 13px; }
+}
+@media (max-width: 380px) {
+    .dashboard-header .brand { flex-basis: 100%; }
+    .theme-controls { width: 100%; }
+    .theme-name { display: flex; }
+    .change-theme { margin-left: auto; font-size: 12px; }
+    .dashboard-hero { padding: 24px 18px 17px; }
+    .clock-period { font-size: 18px; }
+    .hero-eyebrow { font-size: 8px; letter-spacing: .8px; }
+    .weather-panel { grid-template-columns: minmax(0, 1fr); }
+    .weather-details { grid-column: 1; grid-row: auto; margin-top: 17px; padding: 16px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .19); font-size: 12px; }
+    section.allelements { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .elem { height: 250px; }
+    .card-title { font-size: 24px; }
+    .card-description { max-width: none; font-size: 11px; }
+    .card-caption { left: 19px; right: 19px; bottom: 22px; }
+    .card-number { left: 19px; font-size: 9px; letter-spacing: 1px; }
+    .card-arrow { width: 30px; height: 30px; }
+    .task button { width: 100%; }
+    .motivation-wrapper { padding: 22px; }
+}
+@media (hover: none) {
+    .elem:hover, .change-theme:hover, .pomo-timer button:hover { transform: none; }
+    .elem:hover img { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
