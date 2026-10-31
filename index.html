@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="espresso">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,37 +7,93 @@
     <link rel="stylesheet" href="style.css" class="css">
 </head>
 <body>
-    <div id="main">
-        <section class ="allelements">
-            <div class="todo elem" id="0">
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.3a2.2 2.2 0 0 0 1.5-3.8 1.2 1.2 0 0 1 .8-2.1H18A3 3 0 0 0 21 12a9 9 0 0 0-9-9Z"/><circle cx="7.5" cy="10" r=".7"/><circle cx="11" cy="6.8" r=".7"/><circle cx="16" cy="8" r=".7"/></symbol>
+        <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/></symbol>
+        <symbol id="icon-cloud" viewBox="0 0 24 24"><path d="M6 18a5 5 0 1 1 1-9.9A7 7 0 0 1 20 10a4 4 0 0 1-1 8H6Z"/></symbol>
+        <symbol id="icon-rain" viewBox="0 0 24 24"><path d="M5 15a4 4 0 1 1 1-7.9A6 6 0 0 1 18 8a3.5 3.5 0 0 1 1 7M8 18l-1 3m6-3-1 3m6-3-1 3"/></symbol>
+        <symbol id="icon-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M8 4l4 3 4-3M8 20l4-3 4 3M3 11l4-1-1-4m12 12-1-4 4-1M3 13l4 1-1 4m12-12-1 4 4 1"/></symbol>
+        <symbol id="icon-storm" viewBox="0 0 24 24"><path d="M5 15a4 4 0 1 1 1-7.9A6 6 0 0 1 18 8a3.5 3.5 0 0 1 1 7M13 12l-4 6h5l-3 5"/></symbol>
+        <symbol id="icon-drop" viewBox="0 0 24 24"><path d="M12 3S5 11 5 15a7 7 0 0 0 14 0c0-4-7-12-7-12Z"/></symbol>
+        <symbol id="icon-wind" viewBox="0 0 24 24"><path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6a3 3 0 1 1-3 3"/></symbol>
+    </svg>
+    <main id="main">
+        <div class="dashboard-home">
+            <header class="dashboard-header">
+                <div class="brand">
+                    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <div><h1>Productivity Dashboard<span class="brand-dot">.</span></h1><p>A little intention. A better day.</p></div>
+                </div>
+                <div class="theme-controls">
+                    <span class="theme-name" aria-live="polite">Espresso</span>
+                    <button type="button" class="change-theme"><svg class="icon"><use href="#icon-palette"/></svg><span>Change theme</span></button>
+                </div>
+            </header>
+
+            <section class="dashboard-hero" aria-label="Live time and weather">
+                <div class="hero-main">
+                    <p class="hero-eyebrow"><span class="live-dot"></span> A FRESH DAY. A FRESH START.</p>
+                    <p class="live-date">Loading your day...</p>
+                    <div class="clock"><time class="live-time" aria-label="Current local time">--:--:--</time><span class="clock-period"></span></div>
+                    <p class="hero-note">Make space for what matters.</p>
+                    <div class="hero-location">
+                        <span class="location-label"><svg class="icon"><use href="#icon-pin"/></svg><span class="weather-location">Bhopal, Madhya Pradesh</span></span>
+                        <form class="city-search" role="search" aria-label="Find weather for a city">
+                            <svg class="icon"><use href="#icon-search"/></svg>
+                            <input type="search" name="city" placeholder="Search city..." aria-label="City for weather" minlength="2" maxlength="100" required autocomplete="off">
+                            <button type="submit" aria-label="Show city weather"><svg class="icon"><use href="#icon-arrow"/></svg></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="weather-panel" aria-label="Current weather">
+                    <div class="weather-topline"><span>CURRENT WEATHER</span><svg class="weather-icon icon"><use href="#icon-cloud"/></svg></div>
+                    <div class="weather-temperature"><span class="temperature-value">--</span><span class="temperature-unit">°C</span></div>
+                    <p class="weather-condition">Loading weather...</p>
+                    <dl class="weather-details">
+                        <div><dt><svg class="icon"><use href="#icon-drop"/></svg>Humidity</dt><dd class="weather-humidity">--</dd></div>
+                        <div><dt><svg class="icon"><use href="#icon-wind"/></svg>Wind</dt><dd class="weather-wind">--</dd></div>
+                        <div><dt><svg class="icon"><use href="#icon-rain"/></svg>Rain</dt><dd class="weather-rain">--</dd></div>
+                    </dl>
+                    <p class="weather-updated">Refreshes every 15 minutes</p>
+                </div>
+                <div class="hero-footer"><span class="clock-caption">YOUR LOCAL TIME</span><p class="weather-message" role="status"></p><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Weather by Open-Meteo <span aria-hidden="true">↗</span></a></div>
+            </section>
+
+            <div class="tools-heading"><div><p class="section-eyebrow">A PLACE FOR EVERY PLAN</p><h2>Your daily essentials</h2></div><span>Less noise. More focus.</span></div>
+            <section class="allelements" aria-label="Productivity tools">
+            <button type="button" class="todo elem" data-feature="0">
                 <img src="https://plus.unsplash.com/premium_photo-1681487870238-4a2dfddc6bcb?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
                 " alt="">
-                <h2>To Do List</h2>
-            </div>
-            <div class="daily elem" id="1">
+                <span class="card-number">01 / ORGANIZE</span>
+                <span class="card-caption"><span><span class="card-title">To Do List</span><span class="card-description">One task at a time.</span></span><span class="card-arrow"><svg class="icon"><use href="#icon-arrow"/></svg></span></span>
+            </button>
+            <button type="button" class="daily elem" data-feature="1">
                 <img src="https://plus.unsplash.com/premium_photo-1706559780094-648dbe2b2bd0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
                 " alt="">
-                <h2>Daily Planner</h2>
-            </div>
-            <div class="moti elem" id="2">
+                <span class="card-number">02 / MAKE A PLAN</span>
+                <span class="card-caption"><span><span class="card-title">Daily Planner</span><span class="card-description">Give your day a little direction.</span></span><span class="card-arrow"><svg class="icon"><use href="#icon-arrow"/></svg></span></span>
+            </button>
+            <button type="button" class="moti elem" data-feature="2">
                 <img src="https://media.istockphoto.com/id/2170399214/photo/geometric-composition-with-sphere-sharp-shadows-light-background-vibrant-colors-high-contrast.webp?a=1&b=1&s=612x612&w=0&k=20&c=_O3qgmpUYodDFmM9yG6WlBimDFQbIJAK5q_FK1P0yHA=
                 " alt="">
-                <h2>Motivation</h2>
-            </div>
-            <div class="pomo elem" id="3">
+                <span class="card-number">03 / FIND YOUR SPARK</span>
+                <span class="card-caption"><span><span class="card-title">Motivation</span><span class="card-description">A fresh perspective awaits.</span></span><span class="card-arrow"><svg class="icon"><use href="#icon-arrow"/></svg></span></span>
+            </button>
+            <button type="button" class="pomo elem" data-feature="3">
                 <img src="https://media.istockphoto.com/id/1167798559/photo/tomato-character-with-speed-meter.webp?a=1&b=1&s=612x612&w=0&k=20&c=kMapSaLYR9scHJdVMKUS4UAqrlmTwakMXuOvDoaNeqM=
                 " alt="">
-                <h2>Pomodoro Timer</h2>
-            </div>
-            <div class="goals elem" id="4">
-                <img src="https://images.unsplash.com/photo-1667753945977-f53f9a141d6d?w=294&dpr=2&h=294&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
-                " alt="">
-                <h2>Daily Goals</h2>
-            </div>
-
-        </section>
+                <span class="card-number">04 / STAY PRESENT</span>
+                <span class="card-caption"><span><span class="card-title">Pomodoro Timer</span><span class="card-description">Focus. Breathe. Repeat.</span></span><span class="card-arrow"><svg class="icon"><use href="#icon-arrow"/></svg></span></span>
+            </button>
+            </section>
+            <footer class="dashboard-footer"><span>Built for a more intentional everyday.</span><span class="theme-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></footer>
+        </div>
         <section class="fullElem todo-list-fullpage">
-            <button class="back"id="0">Back</button>
+            <button type="button" class="back" data-feature="0">← Back</button>
             <h2>Your Personalized Task List</h2>
             <div class="todo-container">
                 <div class="addTask">
@@ -62,7 +118,7 @@
                 <h2>Plan your Day To Be More Productive</h2>
                 <div class="day-planner-actions">
                     <button type="button" class="clear-planner">Clear</button>
-                    <button class="back" id="1">Back</button>
+                    <button type="button" class="back" data-feature="1">← Back</button>
                 </div>
             </div>
             <div class="day-planner">
@@ -70,7 +126,7 @@
             </div>
         </section>
         <section class="fullElem motivation-fullpage">
-            <button class="back" id="2">Back</button>
+            <button type="button" class="back" data-feature="2">← Back</button>
             <div class="motivation-container">
                 <div class="motivation-wrapper">
                     <div class="motivation1">
@@ -86,7 +142,7 @@
             </div>
         </section>
         <section class="fullElem pomodoro-timer-fullpage">
-            <button class="back" id="3">Back</button>
+            <button type="button" class="back" data-feature="3">← Back</button>
             <h1>Study With Me!</h1>
             <h4 class="session">Work Session</h4>
             <div class="pomo-timer">
@@ -96,12 +152,7 @@
                 <button class="reset-timer">Reset</button>
             </div>
         </section>
-        <section class="fullElem daily-goals-fullpage">
-            <button class="back" id="4">Back</button>
-            <h1>Daily Goals</h1>
-        </section>
-     
-    </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
